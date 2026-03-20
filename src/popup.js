@@ -1,3 +1,8 @@
+/**
+ * QR Tab – Built by Uncle Drew (https://github.com/Tremy-t)
+ * Licensed under CC BY-NC 4.0
+ */
+
 (() => {
   const qrWrapper = document.getElementById("qr-wrapper");
   const urlLabel  = document.getElementById("url-label");
