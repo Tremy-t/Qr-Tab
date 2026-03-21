@@ -1,6 +1,6 @@
 # QR Tab
 
-> Built by **Uncle Drew** ([@Tremy-t](https://github.com/Tremy-t)) and QR Tab Contributors.
+> Built by **Uncle Drew** ([@Tremy-t](https://github.com/Tremy-t)).
 
 > A lightweight Chrome extension that instantly generates a QR code for the current tab's URL.
 
