@@ -104,6 +104,34 @@
       flex-shrink: 0;
     }
 
+    /* Theme selector */
+    #theme-selector {
+      display: flex;
+      gap: 12px;
+      margin-top: -2px;
+      margin-bottom: 2px;
+    }
+
+    .theme-swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .theme-swatch:hover {
+      transform: scale(1.15);
+    }
+
+    .theme-swatch.active {
+      transform: scale(1.2);
+      border-color: #aaa;
+      box-shadow: 0 0 0 2px #fff inset, 0 1px 3px rgba(0,0,0,0.2);
+    }
+
     /* Error state */
     #error-msg {
       font-size: 11px;
@@ -127,6 +155,15 @@
 
   <!-- QR Code — qrcodejs appends a canvas/img into this div -->
   <div id="qr-wrapper"></div>
+
+  <!-- Theme Selector -->
+  <div id="theme-selector">
+    <div class="theme-swatch" data-color="#111111" style="background: #111111;" title="Classic Black"></div>
+    <div class="theme-swatch" data-color="#0277bd" style="background: #0277bd;" title="Ocean Blue"></div>
+    <div class="theme-swatch" data-color="#2e7d32" style="background: #2e7d32;" title="Forest Green"></div>
+    <div class="theme-swatch" data-color="#6a1b9a" style="background: #6a1b9a;" title="Berry Purple"></div>
+    <div class="theme-swatch" data-color="#c62828" style="background: #c62828;" title="Crimson Red"></div>
+  </div>
 
   <!-- Current URL -->
   <div id="url-label">Loading…</div>

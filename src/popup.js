@@ -8,6 +8,8 @@
   const urlLabel  = document.getElementById("url-label");
   const dlBtn     = document.getElementById("download-btn");
   const errMsg    = document.getElementById("error-msg");
+  
+  let currentColor = localStorage.getItem("qrThemeColor") || "#111111";
 
   /** Show error state */
   function showError(msg) {
@@ -23,14 +25,37 @@
    * The library appends a <canvas> (or <img>) to the given element.
    */
   function renderQR(url) {
+    qrWrapper.innerHTML = ""; // Clear existing before re-rendering
     // eslint-disable-next-line no-new
     new QRCode(qrWrapper, {
       text:         url,
       width:        184,
       height:       184,
-      colorDark:    "#111111",
+      colorDark:    currentColor,
       colorLight:   "#ffffff",
       correctLevel: QRCode.CorrectLevel.M,
+    });
+  }
+
+  /**
+   * Initialize theme swatches and handle clicks to update color.
+   */
+  function initThemeSelector(url) {
+    const swatches = document.querySelectorAll(".theme-swatch");
+    
+    swatches.forEach(swatch => {
+      if (swatch.dataset.color === currentColor) {
+        swatch.classList.add("active");
+      }
+      
+      swatch.addEventListener("click", (e) => {
+        swatches.forEach(s => s.classList.remove("active"));
+        e.target.classList.add("active");
+        
+        currentColor = e.target.dataset.color;
+        localStorage.setItem("qrThemeColor", currentColor);
+        renderQR(url);
+      });
     });
   }
 
@@ -94,8 +119,11 @@
     // Display (truncated) URL below the QR box
     urlLabel.textContent = url;
 
-    // Render QR code
+    // Render QR code initially
     renderQR(url);
+
+    // Initialize the color theme selector
+    initThemeSelector(url);
 
     // Wire up download button
     dlBtn.addEventListener("click", () => downloadQR(url));
