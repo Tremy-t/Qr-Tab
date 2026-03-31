@@ -75,7 +75,7 @@ Replace the three files in `icons/` with your own artwork (PNG, same sizes) and 
 
 ## License
 
-This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International** license.  
+This project is licensed under the **GNU General Public License v3.0** license.  
 See [LICENSE](./LICENSE) for full terms.
 
-**In short:** you may use, share, and adapt this software freely for personal and non-commercial purposes. Commercial use is not permitted without written permission from the author.
+**In short:** You are free to use, copy, modify, and distribute this software for any purpose, including commercial use. However, any distributed modifications or derivative works must also be licensed under GPLv3 and must include the complete corresponding source code. All copyright and license notices must be preserved, and any changes made must be clearly documented.

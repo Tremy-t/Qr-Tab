@@ -1,36 +1,39 @@
-/**
- * QR Tab – Built by Uncle Drew (https://github.com/Tremy-t)
- * Licensed under CC BY-NC 4.0
- */
+/*
+
+This project is licensed under the GNU General Public License v3.0.
+
+You are free to use, modify, and distribute this software, including for commercial purposes. However, any distributed modifications or derivative works must also be licensed under GPLv3 and must include the full source code.
+
+© 2026 Uncle Drew (github.com/Tremy-t)*/
 
 (() => {
   const qrWrapper = document.getElementById("qr-wrapper");
-  const urlLabel  = document.getElementById("url-label");
-  const dlBtn     = document.getElementById("download-btn");
-  const errMsg    = document.getElementById("error-msg");
+  const urlLabel = document.getElementById("url-label");
+  const dlBtn = document.getElementById("download-btn");
+  const errMsg = document.getElementById("error-msg");
 
   let currentColor = localStorage.getItem("qrThemeColor") || "#111111";
-  let currentShape = localStorage.getItem("qrShapeType")  || "square";
-  let currentUrl   = "";
+  let currentShape = localStorage.getItem("qrShapeType") || "square";
+  let currentUrl = "";
 
   // ---- Design presets -------------------------------------------------------
   // Each preset maps to qr-code-styling option types.
   // Keeping designs clean and scannable is the priority.
   const DESIGNS = {
     square: {
-      dots:    "square",
+      dots: "square",
       corners: "square",
-      dots_c:  "square",
+      dots_c: "square",
     },
     dots: {
-      dots:    "dots",
+      dots: "dots",
       corners: "extra-rounded",
-      dots_c:  "dot",
+      dots_c: "dot",
     },
     rounded: {
-      dots:    "rounded",
+      dots: "rounded",
       corners: "extra-rounded",
-      dots_c:  "dot",
+      dots_c: "dot",
     },
   };
 
@@ -40,27 +43,27 @@
   function buildOptions(url) {
     const d = DESIGNS[currentShape] || DESIGNS.square;
     return {
-      width:  184,
+      width: 184,
       height: 184,
-      data:   url,
+      data: url,
       margin: 4,
       qrOptions: {
         errorCorrectionLevel: "M",
       },
       dotsOptions: {
         color: currentColor,
-        type:  d.dots,
+        type: d.dots,
       },
       backgroundOptions: {
         color: "#ffffff",
       },
       cornersSquareOptions: {
         color: currentColor,
-        type:  d.corners,
+        type: d.corners,
       },
       cornersDotOptions: {
         color: currentColor,
-        type:  d.dots_c,
+        type: d.dots_c,
       },
     };
   }
@@ -78,10 +81,10 @@
   /** Show error state – hides the QR area and buttons. */
   function showError(msg) {
     qrWrapper.style.display = "none";
-    dlBtn.style.display     = "none";
-    urlLabel.style.display  = "none";
-    errMsg.textContent      = msg || "Could not read the current tab URL.";
-    errMsg.style.display    = "block";
+    dlBtn.style.display = "none";
+    urlLabel.style.display = "none";
+    errMsg.textContent = msg || "Could not read the current tab URL.";
+    errMsg.style.display = "block";
   }
 
   // ---- Selectors ------------------------------------------------------------
