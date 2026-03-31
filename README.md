@@ -5,7 +5,7 @@
 > A lightweight Chrome extension that instantly generates a QR code for the current tab's URL.
 
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue?style=flat-square)
-![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square)
+![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue?style=flat-square)
 
 ---
 
